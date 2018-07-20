@@ -1,0 +1,22 @@
+{
+  "name": "gcd",
+  "version": "1.0.0",
+  "description": "finds and returns greatest common divisor of two nonnegative integers",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsdev17/gcd.git"
+  },
+  "author": "Juan Gonzalez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsdev17/gcd/issues"
+  },
+  "homepage": "https://github.com/jsdev17/gcd#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

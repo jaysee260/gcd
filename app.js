@@ -3,9 +3,13 @@ const app = express();
 const { PORT = 3000 } = process.env;
 
 // Import eucledian algorithm
-const gdc = require('./eucledian-algorithm');
+const gcd = require('./eucledian-algorithm');
 
-app.get('/api/gcd/:a?/:b?', (req, res) => {
+app.get('/test', (req, res) => {
+  res.send('hello')
+})
+
+app.get('/gcd/:a?/:b?', (req, res) => {
   let a = req.params.a;
   let b = req.params.b;
 
@@ -21,8 +25,8 @@ app.get('/api/gcd/:a?/:b?', (req, res) => {
     a = parseInt(a);
     b = parseInt(b);
 
-    // Call gdc() to calculate greatest common divisor
-    let G = gdc(a, b);
+    // Call gcd() to calculate greatest common divisor
+    let G = gcd(a, b);
 
     // End request with answer and status code 200 - OK
     res.status(200).json({
@@ -31,6 +35,14 @@ app.get('/api/gcd/:a?/:b?', (req, res) => {
     });
   }
 
+});
+
+app.get('*', (req, res) => {
+  res.json({
+    available_routes: [
+      "/api/gdc/:a/:b"
+    ]
+  });
 });
 
 

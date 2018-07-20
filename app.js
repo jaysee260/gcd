@@ -5,9 +5,8 @@ const { PORT = 3000 } = process.env;
 // Import eucledian algorithm
 const gcd = require('./eucledian-algorithm');
 
-app.get('/test', (req, res) => {
-  res.send('hello')
-})
+
+///// ROUTES /////
 
 app.get('/gcd/:a?/:b?', (req, res) => {
   let a = req.params.a;
@@ -15,10 +14,11 @@ app.get('/gcd/:a?/:b?', (req, res) => {
 
   // if parameters are undefined, return API notice.
   if (a == undefined && b == undefined) {
+    let description = 'Please provide 2 nonnegative integer as url parameters to find greatest common diviser.';
     res.status(200).json({
       route: '/api/gdc/:a/:b',
       type: 'GET',
-      description: 'Please provide 2 nonnegative integer as url parameters to find greatest common diviser.'
+      description
     });
   } else {
     // Parse parameters into integers
